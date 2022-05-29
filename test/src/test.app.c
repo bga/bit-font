@@ -91,9 +91,11 @@ int main(int argc, char *argv[]) {
 		else if(strcasecmp(arg, "all") == 0) {
 			displayGlyphs(BitFont_all, ARRAY_SIZE(BitFont_all));
 		}
+		#ifndef BIT_FONT__NO_ALPHABET
 		else if(strcasecmp(arg, "alphabet") == 0) {
 			displayGlyphs(BitFont_alphabet, ARRAY_SIZE(BitFont_alphabet));
 		}
+		#endif
 		else if(strcasecmp(arg, "digits") == 0) {
 			displayGlyphs(BitFont_digits, ARRAY_SIZE(BitFont_digits));
 		}
