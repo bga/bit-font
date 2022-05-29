@@ -3,7 +3,7 @@ enum {
 	d1 = MAKE_GLYPH(g2, g2),  
 	d2 = MAKE_GLYPH(g13, g22),  
 	d3 = MAKE_GLYPH(g14, g23),  
-	d4 = MAKE_GLYPH(g3, g15),  
+	d4 = MAKE_GLYPH(g4, g15),  
 	d5 = MAKE_GLYPH(g12, g13),  
 	d6 = MAKE_GLYPH(g12, g4),  
 	d7 = MAKE_GLYPH(g14, g2),  
