@@ -44,6 +44,10 @@ CPPFLAGS += -fPIC
 # CPPFLAGS += -o .obj/$(@F)
 CPPFLAGS += -fdollars-in-identifiers
 
+ifdef DIGITS_ONLY
+	CPPFLAGS += -DBIT_FONT__NO_ALPHABET
+endif
+
 ifdef DEBUG
 	CPPFLAGS += -ggdb -DDEBUG -Og
 else
