@@ -22,6 +22,7 @@
 #define g21 0
 #define g22 0
 #define g23 0
+#define BIT_FONT_HALF_GLYPHES_SIZE 0
 
 const BitFont_GlyphData BitFont_halfGlyphData[] = {
 	#undef g0
@@ -142,6 +143,9 @@ const BitFont_GlyphData BitFont_halfGlyphData[] = {
 		X X X X X X
 	),
 
+	#undef BIT_FONT_HALF_GLYPHES_SIZE
+	#define BIT_FONT_HALF_GLYPHES_SIZE 13
+
 #ifndef BIT_FONT__NO_ALPHABET
 	#undef g7
 	#define g7 13
@@ -241,6 +245,10 @@ const BitFont_GlyphData BitFont_halfGlyphData[] = {
 		X X _ _ _ _
 		X X _ _ _ _
 	),
+
+	#undef BIT_FONT_HALF_GLYPHES_SIZE
+	#define BIT_FONT_HALF_GLYPHES_SIZE 24
+
 #endif // BIT_FONT__NO_ALPHABET
 #endif
 };

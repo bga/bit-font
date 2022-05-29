@@ -44,10 +44,19 @@ BitFont_GlyphData g0Data[] = {
 #undef MAKE_HALF_GLYPH
 
 
+#if BIT_FONT_HALF_GLYPHES_SIZE <= 16
+typedef uint8_t BitFont_Glyph;
+//#define MAKE_GLYPH(hiHalfGlyphIndexArg, loHalfGlyphIndexArg) ((((uintmax_t)(hiHalfGlyphIndexArg)) << 8) | (((uintmax_t)(loHalfGlyphIndexArg)) << 0))
+#define MAKE_GLYPH(hiHalfGlyphIndexArg, loHalfGlyphIndexArg) (((BitFont_Glyph)(hiHalfGlyphIndexArg)) << 4) | (loHalfGlyphIndexArg)
+#define BIT_FONT__GET_HI_HALF_INDEX(vArg) (((BitFont_Glyph)(vArg)) >> 4)
+#define BIT_FONT__GET_LO_HALF_INDEX(vArg) (((BitFont_Glyph)(vArg)) & 0x0F)
+#else
 #if 1
 typedef uint16_t BitFont_Glyph;
 //#define MAKE_GLYPH(hiHalfGlyphIndexArg, loHalfGlyphIndexArg) ((((uintmax_t)(hiHalfGlyphIndexArg)) << 8) | (((uintmax_t)(loHalfGlyphIndexArg)) << 0))
 #define MAKE_GLYPH(hiHalfGlyphIndexArg, loHalfGlyphIndexArg) (((BitFont_Glyph)(hiHalfGlyphIndexArg)) << 8) | (loHalfGlyphIndexArg)
+#define BIT_FONT__GET_HI_HALF_INDEX(vArg) (((BitFont_Glyph)(vArg)) >> 8)
+#define BIT_FONT__GET_LO_HALF_INDEX(vArg) (((BitFont_Glyph)(vArg)) & 0xFF)
 #else
 typedef struct BitFont_Glyph {
 	uint8_t hiHalfGlyphIndex;
@@ -55,6 +64,7 @@ typedef struct BitFont_Glyph {
 } BitFont_Glyph;
 
 #define MAKE_GLYPH(hiHalfGlyphIndexArg, loHalfGlyphIndexArg) { .hiHalfGlyphIndex = (hiHalfGlyphIndexArg), loHalfGlyphIndex =  (loHalfGlyphIndexArg) }
+#endif // 0
 #endif // 0
 #if 0 
 enum {

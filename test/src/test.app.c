@@ -66,8 +66,8 @@ void BitFont_drawHalfGlyph(Coord x0, Coord y0, Color c, BitFont_GlyphData const*
 	}
 }
 void BitFont_drawGlyph(Coord x0, Coord y0, Color c, BitFont_Glyph glyph) {
-	BitFont_drawHalfGlyph(x0, y0, c, &BitFont_halfGlyphData[(uint8_t)(glyph >> 8)], ((Coord)-1));
-	BitFont_drawHalfGlyph(x0, y0 + BitFont_glyphHalfHeight - 1, c, &BitFont_halfGlyphData[(uint8_t)(glyph >> 0)], 0);
+	BitFont_drawHalfGlyph(x0, y0, c, &BitFont_halfGlyphData[(uint8_t)BIT_FONT__GET_HI_HALF_INDEX(glyph)], ((Coord)-1));
+	BitFont_drawHalfGlyph(x0, y0 + BitFont_glyphHalfHeight - 1, c, &BitFont_halfGlyphData[(uint8_t)BIT_FONT__GET_LO_HALF_INDEX(glyph)], 0);
 }
 
 
